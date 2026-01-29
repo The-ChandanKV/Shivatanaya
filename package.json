@@ -1,0 +1,20 @@
+{
+  "name": "shivatanaya-construction",
+  "version": "1.0.0",
+  "description": "Shivatanaya Construction Company Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "construction",
+    "bangalore",
+    "website"
+  ],
+  "author": "Shivatanaya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
