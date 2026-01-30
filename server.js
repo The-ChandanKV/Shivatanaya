@@ -1,5 +1,5 @@
 /**
- * Shivatanaya Construction - Node.js Server
+ * Shivatanaya Constructions - Node.js Server
  * This server enables dynamic loading of projects from folders
  */
 
@@ -154,7 +154,7 @@ app.listen(PORT, () => {
     console.log(`
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║   🏗️  SHIVATANAYA CONSTRUCTION                            ║
+║   🏗️  SHIVATANAYA CONSTRUCTIONS                           ║
 ║                                                           ║
 ║   Server running at: http://localhost:${PORT}               ║
 ║                                                           ║

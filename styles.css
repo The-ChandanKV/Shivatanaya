@@ -1,5 +1,5 @@
 /* ========================================
-   SHIVATANAYA - Premium Construction Website
+   SHIVATANAYA CONSTRUCTIONS - Premium Construction Website
    Modern CSS with Glassmorphism & Animations
    ======================================== */
 
@@ -12,12 +12,12 @@
     --primary-blue: #1A2744;
     --primary-blue-light: #2A3B5E;
     --primary-blue-dark: #0F1A2E;
-    
+
     /* Accent Colors */
     --accent-teal: #2DD4BF;
     --accent-coral: #F97316;
     --accent-purple: #8B5CF6;
-    
+
     /* Neutral Colors */
     --white: #FFFFFF;
     --off-white: #F8FAFC;
@@ -31,13 +31,13 @@
     --gray-800: #1E293B;
     --gray-900: #0F172A;
     --black: #000000;
-    
+
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-light) 50%, var(--primary-gold) 100%);
     --gradient-blue: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
     --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #1A2744 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
@@ -45,18 +45,18 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     --shadow-glow: 0 0 40px rgba(212, 168, 85, 0.3);
     --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
-    
+
     /* Typography */
     --font-primary: 'Outfit', sans-serif;
     --font-heading: 'Playfair Display', serif;
-    
+
     /* Spacing */
     --section-padding: 100px 0;
     --container-max: 1280px;
     --border-radius: 16px;
     --border-radius-sm: 8px;
     --border-radius-lg: 24px;
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
@@ -64,7 +64,9 @@
 }
 
 /* Reset & Base Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -165,8 +167,17 @@ button {
 }
 
 @keyframes building-grow {
-    0%, 100% { transform: scaleY(1); opacity: 0.5; }
-    50% { transform: scaleY(1.3); opacity: 1; }
+
+    0%,
+    100% {
+        transform: scaleY(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleY(1.3);
+        opacity: 1;
+    }
 }
 
 .loader-text {
@@ -392,10 +403,23 @@ button {
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(30px, -30px) rotate(90deg); }
-    50% { transform: translate(-20px, 20px) rotate(180deg); }
-    75% { transform: translate(-30px, -20px) rotate(270deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(30px, -30px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(-30px, -20px) rotate(270deg);
+    }
 }
 
 .hero-content {
@@ -439,9 +463,17 @@ button {
     opacity: 0;
 }
 
-.title-line:nth-child(1) { animation-delay: 0.2s; }
-.title-line:nth-child(2) { animation-delay: 0.4s; }
-.title-line:nth-child(3) { animation-delay: 0.6s; }
+.title-line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.title-line:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.title-line:nth-child(3) {
+    animation-delay: 0.6s;
+}
 
 .title-line.highlight {
     background: var(--gradient-gold);
@@ -455,6 +487,7 @@ button {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -578,8 +611,17 @@ button {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
 }
 
 .hero-building-illustration {
@@ -636,8 +678,15 @@ button {
 }
 
 @keyframes windowGlow {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 .scroll-indicator {
@@ -674,13 +723,29 @@ button {
 }
 
 @keyframes scrollDown {
-    0%, 100% { transform: translateY(-5px); opacity: 0; }
-    50% { transform: translateY(5px); opacity: 1; }
+
+    0%,
+    100% {
+        transform: translateY(-5px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(5px);
+        opacity: 1;
+    }
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
 }
 
 /* ========================================
@@ -1020,8 +1085,15 @@ button {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .floating-images {
@@ -1047,10 +1119,23 @@ button {
 }
 
 @keyframes floatImage {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(50px, -30px) rotate(5deg); }
-    50% { transform: translate(-30px, 40px) rotate(-5deg); }
-    75% { transform: translate(40px, 20px) rotate(3deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(50px, -30px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(-30px, 40px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(40px, 20px) rotate(3deg);
+    }
 }
 
 .projects-grid {
@@ -1702,8 +1787,15 @@ button {
 }
 
 @keyframes whatsappPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-    50% { box-shadow: 0 4px 40px rgba(37, 211, 102, 0.7); }
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 4px 40px rgba(37, 211, 102, 0.7);
+    }
 }
 
 .back-to-top {
@@ -1772,8 +1864,15 @@ button {
 }
 
 @keyframes modalSlide {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .modal-close {
@@ -1871,29 +1970,29 @@ button {
         grid-template-columns: 1fr;
         gap: 50px;
     }
-    
+
     .experience-badge {
         right: 20px;
         bottom: -20px;
     }
-    
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .why-us-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
-    
+
     .hero-image {
         display: none;
     }
@@ -1915,88 +2014,88 @@ button {
         visibility: hidden;
         transition: var(--transition-normal);
     }
-    
+
     .nav-links.active {
         opacity: 1;
         visibility: visible;
     }
-    
+
     .nav-link {
         font-size: 24px;
     }
-    
+
     .nav-cta {
         display: none;
     }
-    
+
     .hamburger {
         display: flex;
         z-index: 1001;
     }
-    
+
     .hero {
         text-align: center;
     }
-    
+
     .hero-subtitle {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .hero-cta {
         justify-content: center;
     }
-    
+
     .hero-stats {
         justify-content: center;
     }
-    
+
     .stat-divider {
         display: none;
     }
-    
+
     .services-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .about-features {
         grid-template-columns: 1fr;
     }
-    
+
     .project-tabs {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .tab-btn {
         justify-content: center;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .testimonials-slider {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-form {
         grid-template-columns: 1fr;
     }
-    
+
     .form-group.full-width {
         grid-column: span 1;
     }
-    
+
     .btn.full-width {
         grid-column: span 1;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 10px;
@@ -2008,25 +2107,25 @@ button {
     html {
         font-size: 14px;
     }
-    
+
     .hero {
         padding: 100px 0 60px;
     }
-    
+
     .hero-stats {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .stat {
         text-align: center;
     }
-    
+
     .btn {
         padding: 14px 24px;
         font-size: 14px;
     }
-    
+
     .whatsapp-float {
         width: 50px;
         height: 50px;
@@ -2034,22 +2133,22 @@ button {
         bottom: 20px;
         right: 20px;
     }
-    
+
     .back-to-top {
         width: 44px;
         height: 44px;
         bottom: 80px;
         right: 20px;
     }
-    
+
     .contact-form-wrapper {
         padding: 24px;
     }
-    
+
     .testimonial-card {
         padding: 24px;
     }
-    
+
     .modal-body {
         padding: 24px;
     }

@@ -1,5 +1,5 @@
 /* ========================================
-   SHIVATANAYA - JavaScript Functionality
+   SHIVATANAYA CONSTRUCTIONS - JavaScript Functionality
    Dynamic Project Loading & Interactions
    ======================================== */
 
@@ -22,7 +22,7 @@ const SAMPLE_PROJECTS = {
             name: 'Luxury Villa - Green Gardens',
             owner: 'Mr. Ramesh Kumar',
             address: '45, Green Gardens Layout, Whitefield, Bangalore - 560066',
-            review: 'Shivatanaya exceeded our expectations! The attention to detail and quality of construction is outstanding. VinodKumar and his team were professional throughout the entire process. Our dream home became a reality thanks to them. Highly recommended for anyone looking for quality construction in Bangalore!',
+            review: 'Shivatanaya Constructions exceeded our expectations! The attention to detail and quality of construction is outstanding. VinodKumar and his team were professional throughout the entire process. Our dream home became a reality thanks to them. Highly recommended for anyone looking for quality construction in Bangalore!',
             images: [],
             folder: 'Sample_Luxury_Villa'
         }
@@ -42,7 +42,7 @@ const SAMPLE_PROJECTS = {
             name: 'Tech Park Commercial Complex',
             owner: 'Innovate Solutions Pvt Ltd',
             address: 'Plot 23, Outer Ring Road, Marathahalli, Bangalore - 560037',
-            review: 'We chose Shivatanaya for their excellent reputation and competitive pricing. Looking forward to the construction phase!',
+            review: 'We chose Shivatanaya Constructions for their excellent reputation and competitive pricing. Looking forward to the construction phase!',
             images: [],
             folder: 'Sample_Commercial_Complex'
         }
@@ -457,7 +457,7 @@ contactForm.addEventListener('submit', (e) => {
 
     // Create email body
     const emailBody = `
-New Construction Inquiry - Shivatanaya
+New Construction Inquiry - Shivatanaya Constructions
 
 Client Details:
 ---------------
@@ -473,7 +473,7 @@ Project Details:
 ${data.message || 'No additional details provided'}
 
 ---
-This inquiry was sent from the Shivatanaya Construction website.
+This inquiry was sent from the Shivatanaya Constructions website.
     `.trim();
 
     // Create mailto link

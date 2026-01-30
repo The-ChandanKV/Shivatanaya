@@ -1,6 +1,6 @@
-# Shivatanaya Construction Website
+# Shivatanaya Constructions Website
 
-A premium construction company website for **Shivatanaya** based in Bangalore, India.
+A premium construction company website for **Shivatanaya Constructions** based in Bangalore, India.
 
 ## 🏗️ Project Structure
 
@@ -46,7 +46,7 @@ Inside your project folder, create a file named `project.txt` with the following
 Project Name: Modern 4BHK Villa
 Owner: Mr. Suresh Reddy
 Address: 123, HSR Layout, Bangalore - 560102
-Review: Shivatanaya delivered exceptional quality work. Very satisfied with their professionalism and attention to detail. Highly recommended!
+Review: Shivatanaya Constructions delivered exceptional quality work. Very satisfied with their professionalism and attention to detail. Highly recommended!
 ```
 
 **Important:** Keep all information on their respective lines. Each field must start with the exact label followed by a colon.
@@ -129,4 +129,4 @@ Modify the services section in `index.html` to reflect your actual services.
 
 ## 📝 License
 
-© 2024 Shivatanaya Construction. All rights reserved.
+© 2024 Shivatanaya Constructions. All rights reserved.
