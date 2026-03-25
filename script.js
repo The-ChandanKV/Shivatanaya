@@ -602,8 +602,8 @@ This inquiry was sent from the Shivatanaya Constructions website.
     // Create mailto link
     const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-    // Open email client in new tab
-    window.open(mailtoUrl, '_blank');
+    // Open email client
+    window.location.href = mailtoUrl;
 
     // Show success message
     showNotification('Opening your email client...', 'success');
