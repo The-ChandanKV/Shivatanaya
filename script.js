@@ -280,7 +280,7 @@ function createProjectCard(project, category) {
     card.dataset.project = JSON.stringify(project);
 
     const hasImages = project.images && project.images.length > 0;
-    const firstImage = hasImages ? project.images[0] : null;
+    const hasMultipleImages = hasImages && project.images.length > 1;
 
     // Category icons and labels
     const categoryLabels = {
@@ -289,21 +289,64 @@ function createProjectCard(project, category) {
         upcoming: { icon: 'fas fa-calendar-alt', label: 'Coming Soon' }
     };
 
-    card.innerHTML = `
-        <div class="project-image">
-            ${hasImages ?
-            `<img src="${firstImage}" alt="${project.name}">` :
-            `<div class="project-image-placeholder">
-                    <i class="fas fa-image"></i>
-                    <span>Add photos to ${project.folder}</span>
-                </div>`
-        }
-            <div class="project-overlay">
-                <div class="project-overlay-content">
-                    <span><i class="${categoryLabels[category].icon}"></i> ${categoryLabels[category].label}</span>
+    // Build the image area HTML
+    let imageAreaHTML = '';
+    if (hasMultipleImages) {
+        // Carousel for multiple images
+        const slidesHTML = project.images.map((img, i) =>
+            `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
+                <img src="${img}" alt="${project.name} - Image ${i + 1}">
+            </div>`
+        ).join('');
+
+        const dotsHTML = project.images.map((_, i) =>
+            `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+        ).join('');
+
+        imageAreaHTML = `
+            <div class="project-image project-carousel">
+                <div class="carousel-track">${slidesHTML}</div>
+                <button class="carousel-nav carousel-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-nav carousel-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots">${dotsHTML}</div>
+                <div class="project-overlay">
+                    <div class="project-overlay-content">
+                        <span><i class="${categoryLabels[category].icon}"></i> ${categoryLabels[category].label}</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        `;
+    } else if (hasImages) {
+        // Single image
+        imageAreaHTML = `
+            <div class="project-image">
+                <img src="${project.images[0]}" alt="${project.name}">
+                <div class="project-overlay">
+                    <div class="project-overlay-content">
+                        <span><i class="${categoryLabels[category].icon}"></i> ${categoryLabels[category].label}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    } else {
+        // Placeholder
+        imageAreaHTML = `
+            <div class="project-image">
+                <div class="project-image-placeholder">
+                    <i class="fas fa-image"></i>
+                    <span>Add photos to ${project.folder}</span>
+                </div>
+                <div class="project-overlay">
+                    <div class="project-overlay-content">
+                        <span><i class="${categoryLabels[category].icon}"></i> ${categoryLabels[category].label}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    card.innerHTML = `
+        ${imageAreaHTML}
         <div class="project-info">
             <h3 class="project-name">${project.name}</h3>
             <div class="project-meta">
@@ -313,9 +356,89 @@ function createProjectCard(project, category) {
         </div>
     `;
 
-    card.addEventListener('click', () => openProjectModal(project));
+    // Set up carousel functionality if multiple images
+    if (hasMultipleImages) {
+        initCardCarousel(card, project.images.length);
+    }
+
+    card.addEventListener('click', (e) => {
+        // Don't open modal if clicking on carousel controls
+        if (e.target.closest('.carousel-nav') || e.target.closest('.carousel-dot')) return;
+        openProjectModal(project);
+    });
 
     return card;
+}
+
+// ========================================
+// CARD IMAGE CAROUSEL
+// ========================================
+function initCardCarousel(card, totalSlides) {
+    let currentSlide = 0;
+    let autoSlideInterval = null;
+    const slides = card.querySelectorAll('.carousel-slide');
+    const dots = card.querySelectorAll('.carousel-dot');
+    const prevBtn = card.querySelector('.carousel-prev');
+    const nextBtn = card.querySelector('.carousel-next');
+
+    function goToSlide(index) {
+        // Wrap around
+        if (index >= totalSlides) index = 0;
+        if (index < 0) index = totalSlides - 1;
+
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+
+        currentSlide = index;
+
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 4000);
+    }
+
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    }
+
+    // Navigation button clicks
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide - 1);
+        // Restart auto-slide timer after manual navigation
+        startAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+    });
+
+    // Dot clicks
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = parseInt(dot.dataset.index);
+            goToSlide(index);
+            startAutoSlide();
+        });
+    });
+
+    // Pause auto-slide on hover, resume on leave
+    card.addEventListener('mouseenter', () => stopAutoSlide());
+    card.addEventListener('mouseleave', () => startAutoSlide());
+
+    // Start auto-sliding
+    startAutoSlide();
 }
 
 function createFloatingImage(container, imageSrc, index) {
@@ -479,8 +602,8 @@ This inquiry was sent from the Shivatanaya Constructions website.
     // Create mailto link
     const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-    // Open email client
-    window.location.href = mailtoUrl;
+    // Open email client in new tab
+    window.open(mailtoUrl, '_blank');
 
     // Show success message
     showNotification('Opening your email client...', 'success');
