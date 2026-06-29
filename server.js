@@ -104,6 +104,24 @@ async function getProjectsFromFolder(category) {
 
             projects.push(project);
         }
+
+        // Handle standalone media files in the root of the category folder
+        const standaloneFiles = entries.filter(entry => 
+            !entry.isDirectory() && 
+            IMAGE_EXTENSIONS.includes(path.extname(entry.name).toLowerCase())
+        );
+
+        for (const file of standaloneFiles) {
+            const fileName = path.basename(file.name, path.extname(file.name));
+            projects.push({
+                name: fileName.replace(/_/g, ' '),
+                owner: 'Shivatanaya', // Default owner
+                address: '',
+                review: '',
+                images: [`/${PROJECT_FOLDERS[category]}/${file.name}`],
+                folder: ''
+            });
+        }
     } catch (err) {
         console.log(`Folder ${category} not found or empty:`, err.message);
     }

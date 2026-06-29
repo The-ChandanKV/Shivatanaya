@@ -19,40 +19,41 @@ const CONFIG = {
 const SAMPLE_PROJECTS = {
     completed: [
         {
-            name: 'Luxury Villa - Green Gardens',
-            owner: 'Mr. Ramesh Kumar',
-            address: '45, Green Gardens Layout, Whitefield, Bangalore - 560066',
-            review: 'Shivatanaya Constructions exceeded our expectations! The attention to detail and quality of construction is outstanding. VinodKumar and his team were professional throughout the entire process. Our dream home became a reality thanks to them. Highly recommended for anyone looking for quality construction in Bangalore!',
-            images: [
-                'completed_projects/Sample_Luxury_Villa/WhatsApp Image 2026-06-29 at 10.31.57 PM.jpeg',
-                'completed_projects/Sample_Luxury_Villa/WhatsApp Video 2026-06-29 at 10.31.08 PM.mp4',
-                'completed_projects/Sample_Luxury_Villa/WhatsApp Video 2026-06-29 at 10.31.57 PM.mp4'
-            ],
-            folder: 'Sample_Luxury_Villa'
+            name: 'WhatsApp Image 2026-06-29 at 10.31.57 PM',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['completed_projects/WhatsApp Image 2026-06-29 at 10.31.57 PM.jpeg'],
+            folder: ''
+        },
+        {
+            name: 'WhatsApp Video 2026-06-29 at 10.31.08 PM',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['completed_projects/WhatsApp Video 2026-06-29 at 10.31.08 PM.mp4'],
+            folder: ''
+        },
+        {
+            name: 'WhatsApp Video 2026-06-29 at 10.31.57 PM',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['completed_projects/WhatsApp Video 2026-06-29 at 10.31.57 PM.mp4'],
+            folder: ''
         }
     ],
     ongoing: [
         {
-            name: 'Contemporary 3BHK Home',
-            owner: 'Mrs. Priya Sharma',
-            address: '78, Sarjapur Road Extension, Electronic City, Bangalore - 560100',
-            review: 'Construction is progressing smoothly and we\'re impressed with the regular updates from the team. Can\'t wait to see our finished home!',
-            images: [
-                'ongoing_projects/Sample_Modern_Home/WhatsApp Video 2026-06-29 at 10.31.58 PM.mp4'
-            ],
-            folder: 'Sample_Modern_Home'
+            name: 'WhatsApp Video 2026-06-29 at 10.31.58 PM',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['ongoing_projects/WhatsApp Video 2026-06-29 at 10.31.58 PM.mp4'],
+            folder: ''
         }
     ],
-    upcoming: [
-        {
-            name: 'Tech Park Commercial Complex',
-            owner: 'Innovate Solutions Pvt Ltd',
-            address: 'Plot 23, Outer Ring Road, Marathahalli, Bangalore - 560037',
-            review: 'We chose Shivatanaya Constructions for their excellent reputation and competitive pricing. Looking forward to the construction phase!',
-            images: [],
-            folder: 'Sample_Commercial_Complex'
-        }
-    ]
+    upcoming: []
 };
 
 // DOM Elements
