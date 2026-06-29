@@ -362,16 +362,23 @@ function createProjectCard(project, category) {
         `;
     }
 
-    card.innerHTML = `
-        ${imageAreaHTML}
-        <div class="project-info">
-            <h3 class="project-name">${project.name}</h3>
-            <div class="project-meta">
-                <span><i class="fas fa-user"></i> ${project.owner}</span>
-                <span><i class="fas fa-map-marker-alt"></i> ${project.address}</span>
+    const hasDetails = project.address || project.review || (project.owner && project.owner !== 'Shivatanaya');
+
+    if (hasDetails) {
+        card.innerHTML = `
+            ${imageAreaHTML}
+            <div class="project-info">
+                <h3 class="project-name">${project.name}</h3>
+                <div class="project-meta">
+                    ${project.owner && project.owner !== 'Shivatanaya' ? `<span><i class="fas fa-user"></i> ${project.owner}</span>` : ''}
+                    ${project.address ? `<span><i class="fas fa-map-marker-alt"></i> ${project.address}</span>` : ''}
+                </div>
             </div>
-        </div>
-    `;
+        `;
+    } else {
+        card.classList.add('media-only');
+        card.innerHTML = imageAreaHTML;
+    }
 
     // Set up carousel functionality if multiple images
     if (hasMultipleImages) {

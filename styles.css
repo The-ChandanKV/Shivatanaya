@@ -2278,3 +2278,6 @@ button {
         padding: 24px;
     }
 }
+/* Media only card styles */
+.project-card.media-only .project-image { min-height: 350px; }
+
