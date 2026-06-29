@@ -271,12 +271,12 @@ function loadProjectCategory(category, projects) {
         const card = createProjectCard(project, category);
         container.appendChild(card);
 
-        // Add floating images if project has images
-        if (project.images && project.images.length > 0) {
-            project.images.slice(0, 3).forEach((img, imgIndex) => {
-                createFloatingImage(floatingContainer, img, imgIndex);
-            });
-        }
+        // Disable floating images as requested
+        // if (project.images && project.images.length > 0) {
+        //     project.images.slice(0, 3).forEach((img, imgIndex) => {
+        //         createFloatingImage(floatingContainer, img, imgIndex);
+        //     });
+        // }
     });
 }
 
@@ -482,7 +482,7 @@ function openProjectModal(project) {
                 ${project.images.map(img => {
                     const isVideo = img.toLowerCase().match(/\.(mp4|webm|ogg)$/);
                     return isVideo 
-                        ? `<video src="${img}" controls autoplay style="width:100%; max-height:70vh;"></video>`
+                        ? `<video src="${img}" controls autoplay muted style="width:100%; max-height:70vh;"></video>`
                         : `<img src="${img}" alt="${project.name}">`;
                 }).join('')}
             </div>
