@@ -16,8 +16,7 @@ const PROJECT_FOLDERS = {
     ongoing: 'ongoing_projects',
     upcoming: 'upcoming_projects'
 };
-
-const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.webm', '.ogg'];
 
 // Serve static files
 app.use(express.static(__dirname));

@@ -11,7 +11,7 @@ const CONFIG = {
         upcoming: 'upcoming_projects'
     },
     projectFile: 'project.txt',
-    imageExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp']
+    imageExtensions: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', 'webm', 'ogg']
 };
 
 // Sample projects data (fallback when can't read from folders)
@@ -23,7 +23,11 @@ const SAMPLE_PROJECTS = {
             owner: 'Mr. Ramesh Kumar',
             address: '45, Green Gardens Layout, Whitefield, Bangalore - 560066',
             review: 'Shivatanaya Constructions exceeded our expectations! The attention to detail and quality of construction is outstanding. VinodKumar and his team were professional throughout the entire process. Our dream home became a reality thanks to them. Highly recommended for anyone looking for quality construction in Bangalore!',
-            images: [],
+            images: [
+                'completed_projects/Sample_Luxury_Villa/WhatsApp Image 2026-06-29 at 10.31.57 PM.jpeg',
+                'completed_projects/Sample_Luxury_Villa/WhatsApp Video 2026-06-29 at 10.31.08 PM.mp4',
+                'completed_projects/Sample_Luxury_Villa/WhatsApp Video 2026-06-29 at 10.31.57 PM.mp4'
+            ],
             folder: 'Sample_Luxury_Villa'
         }
     ],
@@ -33,7 +37,9 @@ const SAMPLE_PROJECTS = {
             owner: 'Mrs. Priya Sharma',
             address: '78, Sarjapur Road Extension, Electronic City, Bangalore - 560100',
             review: 'Construction is progressing smoothly and we\'re impressed with the regular updates from the team. Can\'t wait to see our finished home!',
-            images: [],
+            images: [
+                'ongoing_projects/Sample_Modern_Home/WhatsApp Video 2026-06-29 at 10.31.58 PM.mp4'
+            ],
             folder: 'Sample_Modern_Home'
         }
     ],
@@ -293,11 +299,15 @@ function createProjectCard(project, category) {
     let imageAreaHTML = '';
     if (hasMultipleImages) {
         // Carousel for multiple images
-        const slidesHTML = project.images.map((img, i) =>
-            `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
-                <img src="${img}" alt="${project.name} - Image ${i + 1}">
-            </div>`
-        ).join('');
+        const slidesHTML = project.images.map((img, i) => {
+            const isVideo = img.toLowerCase().match(/\.(mp4|webm|ogg)$/);
+            const mediaTag = isVideo 
+                ? `<video src="${img}" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>`
+                : `<img src="${img}" alt="${project.name} - Image ${i + 1}">`;
+            return `<div class="carousel-slide ${i === 0 ? 'active' : ''}">
+                ${mediaTag}
+            </div>`;
+        }).join('');
 
         const dotsHTML = project.images.map((_, i) =>
             `<span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
@@ -318,9 +328,15 @@ function createProjectCard(project, category) {
         `;
     } else if (hasImages) {
         // Single image
+        const img = project.images[0];
+        const isVideo = img.toLowerCase().match(/\.(mp4|webm|ogg)$/);
+        const mediaTag = isVideo 
+            ? `<video src="${img}" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video>`
+            : `<img src="${img}" alt="${project.name}">`;
+            
         imageAreaHTML = `
             <div class="project-image">
-                <img src="${project.images[0]}" alt="${project.name}">
+                ${mediaTag}
                 <div class="project-overlay">
                     <div class="project-overlay-content">
                         <span><i class="${categoryLabels[category].icon}"></i> ${categoryLabels[category].label}</span>
@@ -442,6 +458,9 @@ function initCardCarousel(card, totalSlides) {
 }
 
 function createFloatingImage(container, imageSrc, index) {
+    const isVideo = imageSrc.toLowerCase().match(/\.(mp4|webm|ogg)$/);
+    if (isVideo) return; // Skip videos for floating animation
+
     const img = document.createElement('img');
     img.src = imageSrc;
     img.className = 'floating-img';
@@ -460,7 +479,12 @@ function openProjectModal(project) {
     modalBody.innerHTML = `
         ${hasImages ? `
             <div class="modal-gallery">
-                ${project.images.map(img => `<img src="${img}" alt="${project.name}">`).join('')}
+                ${project.images.map(img => {
+                    const isVideo = img.toLowerCase().match(/\.(mp4|webm|ogg)$/);
+                    return isVideo 
+                        ? `<video src="${img}" controls autoplay style="width:100%; max-height:70vh;"></video>`
+                        : `<img src="${img}" alt="${project.name}">`;
+                }).join('')}
             </div>
         ` : ''}
         <div class="modal-info">
