@@ -41,6 +41,22 @@ const SAMPLE_PROJECTS = {
             review: '',
             images: ['completed_projects/WhatsApp Video 2026-06-29 at 10.31.57 PM.mp4'],
             folder: ''
+        },
+        {
+            name: 'WhatsApp Image 2026-06-30 at 20.21.30',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['completed_projects/WhatsApp Image 2026-06-30 at 20.21.30.jpeg'],
+            folder: ''
+        },
+        {
+            name: 'WhatsApp Video 2026-06-30 at 20.20.07',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: ['completed_projects/WhatsApp Video 2026-06-30 at 20.20.07.mp4'],
+            folder: ''
         }
     ],
     ongoing: [
@@ -51,6 +67,42 @@ const SAMPLE_PROJECTS = {
             review: '',
             images: ['ongoing_projects/WhatsApp Video 2026-06-29 at 10.31.58 PM.mp4'],
             folder: ''
+        },
+        {
+            name: 'New folder',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: [
+                'ongoing_projects/New folder/WhatsApp Image 2026-06-30 at 20.18.46 (1).jpeg',
+                'ongoing_projects/New folder/WhatsApp Image 2026-06-30 at 20.18.46 (2).jpeg',
+                'ongoing_projects/New folder/WhatsApp Image 2026-06-30 at 20.18.46.jpeg'
+            ],
+            folder: 'New folder'
+        },
+        {
+            name: 'New folder (2)',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: [
+                'ongoing_projects/New folder (2)/WhatsApp Image 2026-06-30 at 20.23.23.jpeg',
+                'ongoing_projects/New folder (2)/WhatsApp Image 2026-06-30 at 20.23.24.jpeg'
+            ],
+            folder: 'New folder (2)'
+        },
+        {
+            name: 'New folder (3)',
+            owner: 'Shivatanaya',
+            address: '',
+            review: '',
+            images: [
+                'ongoing_projects/New folder (3)/WhatsApp Image 2026-06-30 at 20.24.39 (1).jpeg',
+                'ongoing_projects/New folder (3)/WhatsApp Image 2026-06-30 at 20.24.39 (2).jpeg',
+                'ongoing_projects/New folder (3)/WhatsApp Image 2026-06-30 at 20.24.39.jpeg',
+                'ongoing_projects/New folder (3)/WhatsApp Image 2026-06-30 at 20.24.40.jpeg'
+            ],
+            folder: 'New folder (3)'
         }
     ],
     upcoming: []
